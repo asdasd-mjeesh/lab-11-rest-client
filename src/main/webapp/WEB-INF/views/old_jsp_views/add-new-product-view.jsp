@@ -17,15 +17,6 @@
     <form:options items="${allProducers}"/>
     </form:select>
 
-<%--    Producer <select name="producer">--%>
-
-<%--        <c:forEach items="${allProducers}" var="producer">--%>
-<%--             <option value="${producer.id}">${producer.name}</option>>--%>
-<%--        </c:forEach>--%>
-
-<%--    </select>--%>
-
-
     <br><br>
 
     <input type="submit" value="OK">

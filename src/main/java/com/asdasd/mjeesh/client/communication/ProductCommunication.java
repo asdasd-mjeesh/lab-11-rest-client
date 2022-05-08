@@ -1,5 +1,6 @@
 package com.asdasd.mjeesh.client.communication;
 
+import com.asdasd.mjeesh.client.dto.ProductFilter;
 import com.asdasd.mjeesh.client.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -61,6 +62,16 @@ public class ProductCommunication {
 
         if (responseEntity.hasBody()) {
             return responseEntity.getBody();
+        }
+        return new ArrayList<>();
+    }
+
+    public List<Product> getAllProductsByFilter(ProductFilter filter, Integer pageNo) {
+        ResponseEntity<Object> responseEntity =
+                restTemplate.postForEntity(PRODUCTS_GENERAL_URL + "filter/" + pageNo, filter, Object.class);
+
+        if (responseEntity.hasBody()) {
+            return (List<Product>) responseEntity.getBody();
         }
         return new ArrayList<>();
     }

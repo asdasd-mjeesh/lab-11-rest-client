@@ -32,8 +32,13 @@ public class ProducerCommunication {
     }
 
     public List<Producer> getAllProducers(Integer pageNo) {
+        final StringBuilder REQUEST_URL = new StringBuilder(PRODUCERS_GENERAL_URL);
+        if (!Objects.isNull(pageNo)) {
+            REQUEST_URL.append(pageNo);
+        }
+
         ResponseEntity<List<Producer>> responseEntity = restTemplate.exchange(
-                PRODUCERS_GENERAL_URL + pageNo,
+                REQUEST_URL.toString(),
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<Producer>>() {  } );

@@ -17,6 +17,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.0'
 
+    implementation 'org.thymeleaf:thymeleaf-spring5:3.0.15.RELEASE'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     compileOnly group: 'javax.servlet', name: 'servlet-api', version: '2.5'
     implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
