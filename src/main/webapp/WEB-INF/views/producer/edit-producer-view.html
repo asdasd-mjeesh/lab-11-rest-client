@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit producer</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/producers/id/{id}(id=${producer.id})}" th:object="${producer}" >
+    <label for="name"> Name </label>
+    <input name="name" type="text" id="name" th:field="*{name}">
+    <br>
+    <br>
+
+    <span th:if="${producer.contacts.size >= 1}">
+        Current first phone:
+        <span th:text="${producer.contacts[0].number}"> FIRST_PHONE </span>
+        <br>
+    </span>
+    <label for="firstPhone"> Change first phone </label>
+    <input name="firstPhone" type="text" id="firstPhone" >
+    <br>
+    <br>
+
+    <span th:if="${producer.contacts.size >= 2}">
+        Current second phone:
+        <span th:text="${producer.contacts[1].number}"> SECOND_PHONE </span>
+        <br>
+    </span>
+    <label for="secondPhone"> Change second phone </label>
+    <input name="secondPhone" type="text" id="secondPhone" >
+    <br>
+    <br>
+
+    <input type="submit" value="OK">
+</form>
+
+</body>
+</html>

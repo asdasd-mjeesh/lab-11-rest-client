@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Producers</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+    </tr>
+
+    <tr th:each="producer : ${allProducers}">
+
+        <td th:utext="${producer.id}"> VALUE </td>
+        <td><a th:href="@{/producers/id/{id}(id=${producer.id})}" th:text="${producer.name}"> VALUE </a></td>
+
+        <td>
+            <a href="updateLink"
+               th:href="@{/producers/{id}/edit(id=${producer.id})}" > Update </a>
+        </td>
+
+        <td>
+            <a href="deleteLink"
+               th:href="@{/producers/{id}/delete(id=${producer.id})}" > Delete </a>
+        </td>
+
+    </tr>
+
+</table>
+
+<br>
+<br>
+
+<input type="button" value="Add new producer"
+       onclick="window.location.href = 'new' "/>
+
+<input type="button" value="Show all products"
+       onclick="window.location.href = '/asdasd-mjeesh/products/0' "/>
+
+</body>
+</html>

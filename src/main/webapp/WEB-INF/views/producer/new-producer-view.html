@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New producer</title>
+</head>
+<body>
+
+<form method="POST" th:action="@{/producers}" th:object="${form}">
+    <label for="name"> Name </label>
+    <input name="name" type="text" id="name">
+    <br>
+    <br>
+
+    <label for="firstPhone"> First phone </label>
+    <input name="firstPhone" type="text" id="firstPhone">
+    <br>
+
+    <label for="secondPhone"> Second phone </label>
+    <input name="secondPhone" type="text" id="secondPhone">
+    <br>
+    <br>
+
+    <input type="submit" value="OK">
+</form>
+
+</body>
+</html>

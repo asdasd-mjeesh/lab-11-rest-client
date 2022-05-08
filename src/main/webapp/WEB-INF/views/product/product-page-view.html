@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All products</title>
+</head>
+
+<body>
+<form method="GET" th:action="@{/products/filter/0}">
+    <label for="titleParam"> Title </label>
+    <input name="titleParam" type="text" id="titleParam">
+    <br>
+
+    <label for="producerNameParam"> Producer name </label>
+    <input name="producerNameParam" type="text" id="producerNameParam">
+    <br>
+
+    <label for="minCostParam"> Minimal cost </label>
+    <input name="minCostParam" type="text" id="minCostParam">
+    <br>
+
+    <label for="maxCostParam"> Maximal cost </label>
+    <input name="maxCostParam" type="text" id="maxCostParam">
+    <br>
+
+    <input type="submit" value="Search"/>
+
+</form>
+</body>
+
+<br>
+<br>
+
+<body>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>cost</th>
+    </tr>
+
+    <tr th:each="product, state : ${products}">
+
+        <td th:utext="${product.id}"> VALUE </td>
+        <td><a th:href="@{/products/id/{id}(id=${product.id})}" th:text="${product.title}"> VALUE </a></td>
+        <td th:utext="${product.cost}"> VALUE </td>
+
+        <td>
+            <a href="updateLink"
+               th:href="@{/products/{id}/edit(id=${product.id})}" > Update </a>
+        </td>
+
+        <td>
+            <a href="deleteLink"
+               th:href="@{/products/{id}/delete(id=${product.id})}" > Delete </a>
+        </td>
+
+    </tr>
+
+</table>
+<br>
+<br>
+
+<input type="button" value="Add new product"
+       onclick="window.location.href = 'new' "/>
+
+<input type="button" value="Show all producers"
+       onclick="window.location.href = '/asdasd-mjeesh/producers/0' "/>
+
+<a href="beforePageLink"
+   th:href="@{/products/{pageNo}(pageNo=${pageNo - 1})}" > before page </a>
+
+<a href="nextPageLink"
+   th:href="@{/products/{pageNo}(pageNo=${pageNo + 1})}" > next page </a>
+
+</body>
+</html>

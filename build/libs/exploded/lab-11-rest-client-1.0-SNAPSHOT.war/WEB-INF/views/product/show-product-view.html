@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Породукт</title>
+</head>
+
+<body>
+
+ID: <span th:utext="${product.id}"></span>
+<br>
+Title: <span th:text="${product.title}"></span>
+<br>
+Cost: <span th:text="${product.cost}"></span>
+<br>
+Shelf life: <span th:text="${product.shelfLife}"></span>
+<br>
+Producer: <span> <a th:href="@{/producers/id/{id}(id=${product.producer.id})}" th:text="${product.producer.name}"> </a> </span>
+
+</body>
+
+</html>

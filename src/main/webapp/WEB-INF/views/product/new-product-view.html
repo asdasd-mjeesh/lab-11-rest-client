@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New product</title>
+</head>
+
+<body>
+
+<form method="POST" th:action="@{/products}" >
+    <label for="title"> Title </label>
+    <input name="title" type="text" id="title">
+    <br>
+
+    <label for="cost"> Cost </label>
+    <input name="cost" type="text" id="cost">
+    <br>
+
+    <label for="shelfLife"> Shelf life </label>
+    <input name="shelfLife" type="date" id="shelfLife">
+    <br>
+
+    <label for="dropDownList"> Producer </label>
+    <select class="form-control" id="dropDownList" name="pickedProducerId">
+
+        <option value="">producer</option>
+        <option th:each="producer : ${producers}"
+                th:value="${producer.id}"
+                th:text="${producer.name}">
+        </option>
+
+    </select>
+    <br>
+    <br>
+
+    <input type="submit" value="Add">
+</form>
+
+</body>
+
+</html>
